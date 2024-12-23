@@ -1,66 +1,47 @@
-//PRJTRV5 : Introduction de tableau manuellement
-// Plusieurs type de tableau : Char et int, 0 de cloture nécesaire pour fermer la lecture du tableau pour des char
+//PrjTrv 5.1 : Gestion avancé d'un tableau de charactère
+// Gestion des touches spéciale comme les touche fonction, flèches et etc.
 #include <stdio.h>
 #include <conio.h>
 
 int main(void) {
-    int TailleTab = 4; //Taille du tableau
-    int Tx[TailleTab], x = 0; // X etant l'indice de notre tableau
-    char Tc[TailleTab+1]; //En comptant le 0 de clôture
-    float Tf[TailleTab];
-
-    // Entré manuelle d'un tableau d'entier numérique
-    printf("Tableau d'entier");
-    printf("\n-> Valeur N.0 Tableau Entier: ");
-    scanf("%d", &Tx[x]); getchar();
-    x++;
-    printf("\n-> Valeur N.1 Tableau Entier: ");
-    scanf("%d", &Tx[x]); getchar();
-    x++;
-    printf("\n-> Valeur N.2 Tableau Entier: ");
-    scanf("%d", &Tx[x]); getchar();
-    x++;
-    printf("\n-> Valeur N.3 Tableau Entier: ");
-    scanf("%d", &Tx[x]); getchar();
-    x++;
-    printf("\n\t * N.0 valeur : %d\n\t * N.1 valeur : %d\n\t * N.2 valeur : %d\n\t * N.3 valeur : %d", Tx[0], Tx[1], Tx[2], Tx[3]);
-    x = 0;
-
-    //Entre manuelle tableau de charactere
-    printf("Tableau de charactere (Ou chaine de charactere");
-    printf("Tableau d'entier");
-    printf("\n-> Valeur N.0 Tableau Charactere: ");
-    Tc[x] = getch();
-    x++;
-    printf("\n-> Valeur N.1 Tableau Charactere: ");
-    Tc[x] = getch();
-    x++;
-    printf("\n-> Valeur N.2 Tableau Charactere: ");
-    Tc[x] = getch();
-    x++;
-    printf("\n-> Valeur N.3 Tableau Charactere : ");
-    Tc[x] = getch();
-    printf("\n\n\t * N.0 valeur : %c\n\t * N.1 valeur : %c\n\t * N.2 valeur : %c", Tc[0], Tc[1], Tc[2]);
-    printf("\n\n\t * Autres maniere d'ecrire une chaine de charactere mais non manuellement :  %s", Tc);
-    printf("\n\n\t * Derniere case de notre tableau : %d", Tc[3]);
-    x = 0;
-
-    //Entre manuelle tableau float
-    printf("Tableau de float");
-    printf("\n-> Valeur N.0 Tableau float: ");
-    scanf("%f", &Tf[x]); getchar();
-    x++;
-    printf("\n-> Valeur N.1 Tableau float: ");
-    scanf("%f", &Tf[x]); getchar();
-    x++;
-    printf("\n-> Valeur N.2 Tableau float: ");
-    scanf("%f", &Tf[x]); getchar();
-    x++;
-    printf("\n-> Valeur N.3 Tableau float: ");
-    scanf("%f", &Tf[x]); getchar();
-    x++;
-    printf("\n\t * N.0 valeur : %f\n\t * N.1 valeur : %f\n\t * N.2 valeur : %f\n\t * N.3 valeur : %f", Tf[0], Tf[1], Tf[2], Tf[3]);
-
+    char Tchar[1];
+    int x = 0;
+    Tchar[x] = getch();
+    switch (Tchar[x]) {
+        case 13: // Code ASCII de la touche "Enter"
+            printf("Vous avez appuyer sur la touche Enter");
+        break;
+        case 8: // Code ASCII de la touche "Backspace"
+            printf("Vous avez appuyer sur la touche backspace");
+        break;
+        case 27: // Code ASCII de la touche "Espace"
+            printf("Vous avez appuyer sur la touche ");
+        break;
+        case 9:// Code ASCII de la touche "Tab"
+            printf("Vous avez appuyer sur la touche Tab");
+        break;
+        case 0: // Première parti du code Ascii d'une touche fonction
+            case -32: // Deuxième partir du code Ascii de la touche fonction
+            printf("Vous avez appuyer sur la touche FX");
+        getch(); // On suprimme le code dans le Buffer (2ème parti du code ASCII des touches fonctions
+        break;
+        case 32: // Code Ascii de la touche espace
+            printf("Vous avez appuyer sur la touche Espace");
+        break;
+        default:
+            if (Tchar[x] >= 48 && Tchar[x] <= 57) { // Code Ascii 0-9
+                printf("Vous avez appuyer sur une touche Alpha-numérique");
+            }
+            else if (Tchar[x] >= 65 && Tchar[x] <= 90) { // Code Ascii A-Z
+                printf("Vous avez appuez sur une touche Majuscules");
+            }
+            else if (Tchar[x] >= 97 && Tchar[x] <= 122) { // Code Ascii a-z
+                printf("Vous avez appuer sur une touche Minuscule");
+            }
+            else { // Autre touche
+                printf("Touche non-gere par le programme");
+            }
+    }
     getch();
 
 }
