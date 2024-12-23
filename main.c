@@ -1,28 +1,32 @@
-// PRJTRV 3
-// Type d'aquisitions de frappe en langage C
-// Le buffer est une zone mémoire temporaire qui permet de pouvoir anoté plusieurs charactère à la fois
-// Le code ascii de chaque frappe du buffer peuvent être récupérable
-
+//PRJTRV4 : Pointeur
+// Les pointeur peuvent pointer l'adresse d'une variable afin de la recuprer ou d'introduire des données dedans
+// px : Adresse que px pointe (Variable X dans ce cas si)
+// *px: Contenue de l'adresse point" par px
+// &px: Adresse du pointeur PX
 #include <stdio.h>
 #include <conio.h>
 int main(void) {
-    char c;
-    printf("\n--> Introduction non-bufferise de la frappe - Getch");
-    c = getch();
-    printf("\n\t * Frappe introduite : %c\n\t * Valeur de la frappe : %d", c, c);
+    int *px = 0, x = 0;
+    char *pc, c; //
+    printf("Avant aquistions d'une valeurs");
+    printf("--> Adresse de la variable X : %04X\n--> Valeur de X avant aquisitions : %d",&x, x);
+    printf("\n--> Adresse du pointeur PX : %04X\n--> Adresse pointe par px  : %d",&px, px);
 
-    printf("\n--> Introduction non-bufferise de la frappe - Getche (Avec echo)");
-    c = getche();
-    printf("\n\t * Frappe introduite : %c\n\t * Valeur de la frappe : %d", c, c);
+    px = &x;
+    printf("\n\nApres mise en place du pointeur PX : ");
+    printf("\n--> Adresse de la variable X : %04X\n--> Valeur de X avant aquisitions : %d",&x, x);
+    printf("\n--> Adresse du pointeur PX : %04X\n--> Valeur du contenue du pointeur PX : %d\n--> Adresse pointe par PX : %04X",&px, *px, px);
 
-    printf("\n--> Introduction bufferise de la frappe - Getchar");
-    c = getchar();
-    printf("\n\t * Frappe introduite : %c\n\t * Valeur de la frappe : %d", c, c);
 
-    printf("\n--> Introduction bufferise de la frappe - Scanf");
-    scanf("%c", &c); getch();
-    printf("\n\t * Frappe introduite : %c\n\t * Valeur de la frappe : %d", c, c);
+    *px = 100;
+    printf("\n\nApres avoir donne la valeur du contenue de px : ");
+    printf("\n--> Adresse de la variable X : %04X\n--> Valeur de X avant aquisitions : %d",&x, x);
+    printf("\n--> Adresse du pointeur PX : %04X\n--> Valeur du contenue du pointeur PX : %d\n--> Adresse pointe par PX : %04X",&px, *px, px);
 
+    x = 200;
+    printf("\n\nApres avoir donne une valeur a X: ");
+    printf("\n--> Adresse de la variable X : %04X\n--> Valeur de X avant aquisitions : %d",&x, x);
+    printf("\n--> Adresse du pointeur PX : %04X\n--> Valeur du contenue du pointeur PX : %d\n--> Adresse pointe par PX : %04X",&px, *px, px);
     getch();
 
     return 0;
