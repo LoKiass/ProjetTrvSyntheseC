@@ -38,6 +38,13 @@ Ce projet vise à fournir une approche progressive pour maîtriser différents c
 - Utilisation des codes ASCII pour identifier les entrées utilisateur.
 - Exemples concrets d'utilisation des structures conditionnelles et des `switch` pour traiter les entrées clavier.
 
+### Version 6 : Boucles
+- Gestion des trois types de boucles : `while`, `do...while`, et `for`.
+- Acquisition et stockage de valeurs dans un tableau d'entiers.
+- Affichage des valeurs stockées dans le tableau.
+- Comparaison des comportements des boucles en termes de syntaxe et d'utilisation.
+- Mise en pratique de la manipulation de tableaux avec des boucles.
+
 ## Structure du projet
 Chaque version du programme est isolée dans son propre fichier ou répertoire, accompagné d'exemples de code, de tests et de commentaires détaillés pour faciliter la compréhension.
 
