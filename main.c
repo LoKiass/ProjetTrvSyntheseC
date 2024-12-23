@@ -1,37 +1,27 @@
-// PRJTRV 2
-// Affichages des valeur, des adresses et des valeur hexadec, valeur signé, non signé
+// PRJTRV 3
+// Type d'aquisitions de frappe en langage C
+// Le buffer est une zone mémoire temporaire qui permet de pouvoir anoté plusieurs charactère à la fois
+// Le code ascii de chaque frappe du buffer peuvent être récupérable
+
 #include <stdio.h>
 #include <conio.h>
 int main(void) {
-    int x = 0;
-    int y = 0;
-    int z = 0;
-    unsigned w = 0;
-    printf("\n * Donner moi la valeur de x : ");
-    scanf("%d", &x);
-    printf("\n * Donner moi la valeur de y : ");
-    scanf("%d", &y);
+    char c;
+    printf("\n--> Introduction non-bufferise de la frappe - Getch");
+    c = getch();
+    printf("\n\t * Frappe introduite : %c\n\t * Valeur de la frappe : %d", c, c);
 
-    printf("\n\t * Valeur de x : %d\n\tAdresse de x : %04X h ", x, &x);
-    printf("\n\n\t * Valeur de y : %d\n\t Adresse de y : %04X h ", y, &y);
-    printf("\n\n\t * Valeur de z : %d\n\t Adresse de z : %04X h ", z, &z);
-    printf("\n\n\t * Valeur de w (Unsigned) : %d\n\t Adresse de z : %04X h \n", w, &w);
+    printf("\n--> Introduction non-bufferise de la frappe - Getche (Avec echo)");
+    c = getche();
+    printf("\n\t * Frappe introduite : %c\n\t * Valeur de la frappe : %d", c, c);
 
-    z = x - y; // Application d'un calcule et stockage de ce calule dans la variables Z
+    printf("\n--> Introduction bufferise de la frappe - Getchar");
+    c = getchar();
+    printf("\n\t * Frappe introduite : %c\n\t * Valeur de la frappe : %d", c, c);
 
-    printf("\nValeur apres calcule de Z : ");
-    printf("\n\n\t * Valeur de x : %d\n\t Adresse de x : %04X h ", x, &x); // L'adresse de X après calcule ne changeras pas
-    printf("\n\n\t * Valeur de y : %d\n\t Adresse de y : %04X h ", y, &y); // L'adresse de Y ne changeras pas après le calcule
-    printf("\n\n\t * Valeur de z : %d\n\t Adresse de z : %04X h ", z, &z); // L'adresse de Z ne changeras pas non plus mais bien sa valeur
-    printf("\n\n\t * Valeur de w (Unsigned) : %d\n\t Adresse de w1 : %04X h \n", w, &w);
-
-    w = x - y; // Application d'un calcule et stockage du cvalcule dans la variables W (Unsigned donc uniquement positif)
-
-    printf("\nValeur apres calcule de Z : ");
-    printf("\n\t * Valeur de x : %d\n\tAdresse de x : %04X h ", x, &x);
-    printf("\n\n\t * Valeur de y : %d\n\t Adresse de y : %04X h ", y, &y);
-    printf("\n\n\t * Valeur de z : %d\n\t Adresse de z : %04X h ", z, &z);
-    printf("\n\n\t * Valeur de w (Unsigned) : %d\n\t Adresse de w1 : %04X h \n", w, &w);
+    printf("\n--> Introduction bufferise de la frappe - Scanf");
+    scanf("%c", &c); getch();
+    printf("\n\t * Frappe introduite : %c\n\t * Valeur de la frappe : %d", c, c);
 
     getch();
 
